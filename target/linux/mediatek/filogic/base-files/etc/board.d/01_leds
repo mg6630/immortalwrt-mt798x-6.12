@@ -126,6 +126,11 @@ iptime,ax3000sm)
 iptime,ax7800m-6e)
 	ucidef_set_led_netdev "wan" "wan" "mdio-bus:06:blue:wan" "eth1" "link tx rx"
 	;;
++clx,s20p)
+	ucidef_set_led_netdev "wlan5g" "5G" "blue:wlan-5ghz" "phy1-ap0"
+	ucidef_set_led_netdev "wlan2g" "2.4G" "blue:wlan-2ghz" "phy0-ap0"
+	ucidef_set_led_timer "sys" "SYS" "blue:status" "1000" "2000"
+;;
 keenetic,kn-1812|\
 netcraze,nc-1812)
 	ucidef_set_led_netdev "wlan2g" "WLAN2G" "green:indicator-1" "phy0.0-ap0"
