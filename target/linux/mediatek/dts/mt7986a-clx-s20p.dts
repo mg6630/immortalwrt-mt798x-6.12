@@ -9,11 +9,13 @@
 
 / {
 	model = "CLX S20P";
+	#size-cells = <1>;
+	#address-cells = <1>;
 	compatible = "clx,s20p", "mediatek,mt7986a";
 
 	aliases {
 		serial0 = &uart0;
-		label-mac-device = &gmac0;
+		label-mac-device = &gmac1;
 		led-boot = &sys_led;
 		led-failsafe = &sys_led;
 		led-running = &sys_led;
@@ -22,10 +24,12 @@
 
 	chosen {
 		stdout-path = "serial0:115200n8";
-		bootargs-append = " root=PARTLABEL=rootfs rootwait";
+		bootargs-override = "root=/dev/fit0 rootwait";
+		rootdisk = <&emmc_rootdisk>;
 	};
 
-	memory {
+	memory@40000000 {
+		device_type = "memory";
 		reg = <0 0x40000000 0 0x80000000>;
 	};
 
@@ -54,10 +58,12 @@
 			gpios = <&pio 1 GPIO_ACTIVE_LOW>;
 		};
 
-		sys_led: sys-led {
+		led_sys {
+			label = "sys";
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_BLUE>;
 			gpios = <&pio 22 GPIO_ACTIVE_LOW>;
+			default-state = "on";
 		};
 	};
 
@@ -265,6 +271,7 @@
 		};
 	};
 };
+
 
 &pio {
 	mmc0_pins_default: mmc0-pins {
