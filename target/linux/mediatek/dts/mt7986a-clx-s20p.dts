@@ -32,6 +32,18 @@
 		reg = <0 0x40000000 0 0x80000000>;
 	};
 
+	config {
+   		compatible = "openwrt,env", "barebox,environment";
+    	environment@0 {
+        	#address-cells = <1>;
+        	#size-cells = <1>;
+        	reg = <0x80000 0x80000>;
+        	barebox,environment = "openwrt";
+        	barebox,device = <&spi0>;
+    	};
+	};
+
+
 	gpio-keys {
 		compatible = "gpio-keys";
 
@@ -274,6 +286,11 @@
 	};
 };
 
+&spi0 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&spi0_pins>;
+};
 
 &pio {
 	mmc0_pins_default: mmc0-pins {
