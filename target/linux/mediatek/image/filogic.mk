@@ -1512,6 +1512,8 @@ define Device/clx_s20p
   UBOOT_NAME := mt7986a-u-boot.fip
   IMAGE/preloader.bin :=
   IMAGE/gpt.bin :=
+  IMAGE/bl31-uboot.fip :=
+  IMAGE/ubi.img :=
   IMAGE/factory.bin := append-kernel | pad-to 32M | append-rootfs
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
