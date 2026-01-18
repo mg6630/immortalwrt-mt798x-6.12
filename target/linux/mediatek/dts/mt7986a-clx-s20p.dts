@@ -293,6 +293,17 @@
 };
 
 &pio {
+    spi0_pins: spi0-pins {
+        mux {
+            function = "spi0";
+            groups = "spi0_51";  // MT7986 平台 spi0 引脚组标准名称
+        };
+        conf {
+            pins = "SPI0_MOSI", "SPI0_MISO", "SPI0_CLK", "SPI0_CS";
+            drive-strength = <4>;
+            mediatek,pull-up-adv = <1>;  // 10K 上拉
+        };
+    };
 	mmc0_pins_default: mmc0-pins {
 		mux {
 			function = "emmc";
