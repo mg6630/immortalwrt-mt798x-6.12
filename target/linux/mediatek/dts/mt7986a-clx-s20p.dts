@@ -188,7 +188,7 @@
 
 				port@4 {
 					reg = <4>;
-				label = "lan1";
+					label = "lan1";
 				
 				};
 
@@ -370,7 +370,7 @@
 		mux {
 			function = "wifi";
 			groups = "wf_dbdc";
-	};
+		};
 		conf {
 			pins = "WF0_HB1", "WF0_HB2", "WF0_HB3", "WF0_HB4",
 				"WF0_HB0", "WF0_HB0_B", "WF0_HB5", "WF0_HB6",
