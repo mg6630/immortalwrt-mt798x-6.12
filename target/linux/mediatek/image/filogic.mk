@@ -1505,8 +1505,9 @@ define Device/clx_s20p
   IMAGES += factory.bin
   ARTIFACTS :=gpt.bin preloader.bin bl31-uboot.fip
   ARTIFACT/gpt.bin := mt798x-gpt emmc
-  ARTIFACT/preloader.bin := mt7986-bl2 emmc-ddr4
+  #ARTIFACT/preloader.bin := mt7986-bl2 emmc-ddr4
   #ARTIFACT/bl31-uboot.fip := mt7986-bl31-uboot clx_s20p
+  PRELOADER := mt7986a-preloader.bin
   UBOOT_NAME := mt7986a-u-boot.fip
   IMAGE/factory.bin := append-kernel | pad-to 32M | append-rootfs
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
