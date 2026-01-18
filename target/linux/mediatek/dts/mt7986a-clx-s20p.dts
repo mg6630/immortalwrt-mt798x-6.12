@@ -58,7 +58,7 @@
 			gpios = <&pio 1 GPIO_ACTIVE_LOW>;
 		};
 
-		sys_led {
+		sys_led: sys-led {
 			label = "sys";
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_BLUE>;
