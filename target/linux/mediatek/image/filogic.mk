@@ -1499,6 +1499,7 @@ define Device/clx_s20p
   DEVICE_MODEL := S20P
   DEVICE_DTS := mt7986a-clx-s20p
   DEVICE_DTS_DIR := ../dts
+  SUPPORTED_DEVICES += clx,s20p
   DEVICE_DTC_FLAGS := --pad 4096
   DEVICE_DTS_LOADADDR := 0x43f00000
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware kmod-usb3 automount
@@ -1509,6 +1510,8 @@ define Device/clx_s20p
   #ARTIFACT/bl31-uboot.fip := mt7986-bl31-uboot clx_s20p
   PRELOADER := mt7986a-preloader.bin
   UBOOT_NAME := mt7986a-u-boot.fip
+  IMAGE/preloader.bin :=
+  IMAGE/gpt.bin :=
   IMAGE/factory.bin := append-kernel | pad-to 32M | append-rootfs
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
